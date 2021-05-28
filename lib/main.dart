@@ -38,13 +38,17 @@ class _MyAppState extends State<MyApp> {
             Row(
               children: [
                 Text('Radio1'),
-                Radio(value: _searchType, groupValue: SearchType.radio1, onChanged: (val) => _searchType = val ),
+                Radio(value: _searchType, groupValue: SearchType.radio1, onChanged: (val) => {
+                   _searchType = val  }),
                 Text('Radio2'),
                 Radio(value: _searchType, groupValue: SearchType.radio2, onChanged: (val) => _searchType = val ),
 
               ],
             ),
-            Slider( label: _value.toString(), min: 0, max: 100, value: _value, onChanged: (_) => true)
+            Slider( label: _value.toString(), min: 0, max: 100, value: _value, onChanged: (_) => true),
+            DropdownButton(value: _searchType, items: [DropdownMenuItem(child: Text('Web'), value: SearchType.radio1,),
+            DropdownMenuItem(child: Text('Mobile'), value: SearchType.radio2,),
+            ] , onChanged: (_) => true )
 
           ]
         ),
